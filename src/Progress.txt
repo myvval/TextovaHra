@@ -1,0 +1,26 @@
+loading for rooms done- no objects, enemies, player, etc.
+rooms setup in worldMap+ connection
+worldmap- missing check if the room really exists(now it requires that the person/program that wrote in the file knows what hes doing)
+
+
+
+
+
+
+
+-TO DO LIST-
+PRIORITY:
+displaying directions of the rooms still doesnt work, but the movement is correct.
+
+
+
+List kde jsou vsechny id roomek
+changePlayerRoom- can throw 0 pointer exception-Exception in thread "main" java.lang.NullPointerException: Cannot invoke "Room.getId()" because the return value of "java.util.HashMap.get(Object)" is null
+added text+ display for directions+ now need to do so the player can move in them, the the rest
+
+
+
+enemies-
+player-
+console interface-
+items-
