@@ -2,11 +2,15 @@ public class Player {
     private int position;
     private String name;
     private int health;
+    private int armor; //adds to health can only nulify attack not increase health
+    private int damage;
 
     public Player(String name) {
         this.position = 0;
         this.name= name;
         this.health = 100;
+        this.armor = 0;
+        this.damage = 10;
     }
     public int getPosition() {
         return this.position;

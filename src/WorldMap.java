@@ -26,6 +26,9 @@ public class WorldMap {
         }
         return null;
     }
+    public Room findRoomById(int id) {
+        return roomMap.get(id);
+    }
 
 
     public void loadMap() {
@@ -37,6 +40,7 @@ public class WorldMap {
                     section = "ROOMS";
                     continue;
                 }
+                if(line.equals("ITEMS")) break;
                 if (line.isEmpty()) continue;
 
                 switch (section) {
@@ -47,6 +51,7 @@ public class WorldMap {
                         roomMap.put(room.getId(), room);
                         roomList.add(room);
                         room.addConnectionData(parts[3], parts[4], parts[5], parts[6]);
+                        break;
                 }
 
 
@@ -121,5 +126,9 @@ public class WorldMap {
         for(Room room: roomList) {
             System.out.println(room.getRoomsArround());
         }
+    }
+
+    public ArrayList<Room> returnListOfRoom() {
+        return roomList;
     }
 }

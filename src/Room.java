@@ -10,15 +10,26 @@ public class Room {
     private ArrayList<Room> roomsArroundList;
     private HashMap<String,String> connectionData;
     private ArrayList<String> directions;
+    private ArrayList<Item> listOfItems;
     public Room(int id,String name,String description) {
         this.id = id;
         this.name = name;
         this.description = description;
         roomsArround = new HashMap<>();
         connectionData = new HashMap<>();
-
         roomsArroundList = new ArrayList<>();
         directions = new ArrayList<>();
+        listOfItems = new ArrayList<>();
+    }
+
+    public void addItem(Item item) {
+        listOfItems.add(item);
+    }
+    public void removeItem(Item item) {
+        listOfItems.remove(item);
+    }
+    public ArrayList<Item> getItems() {
+        return listOfItems;
     }
 
     public int getId() {

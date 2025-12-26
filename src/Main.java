@@ -1,12 +1,29 @@
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
         WorldMap map = new WorldMap();
+        ItemsManager itemManager = new ItemsManager();
         //map.generateTestMap();
         map.loadMap();
         map.connectRooms();
-        //map.showList();
+        itemManager.loadItems();
+
+
+
+        ArrayList<Item> items = itemManager.getItems();
+        ArrayList<Room> rooms = map.returnListOfRoom();
+        for(Item item:items) {
+            rooms.get(item.getLocation()).addItem(item);
+        }
+
+
+
+
+
+
+
         Player player = new Player("NO NAME");
         Scanner scanner = new Scanner(System.in);
         System.out.println("START OF THE GAME");
