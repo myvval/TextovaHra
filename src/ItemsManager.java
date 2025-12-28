@@ -18,7 +18,9 @@ public class ItemsManager {
         while ((line = br.readLine()) != null) {
 
                 if(line.equals("ITEMS")){section = "ITEMS"; continue;}
+                if(line.equals("ENEMIES")){break;}
                 if(line.isEmpty()) continue;
+
 
                 switch (section) {
                     case "ITEMS":

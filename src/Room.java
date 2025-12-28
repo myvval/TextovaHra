@@ -11,6 +11,7 @@ public class Room {
     private HashMap<String,String> connectionData;
     private ArrayList<String> directions;
     private ArrayList<Item> listOfItems;
+    private ArrayList<Enemy> listOfEnemies;
     public Room(int id,String name,String description) {
         this.id = id;
         this.name = name;
@@ -20,7 +21,9 @@ public class Room {
         roomsArroundList = new ArrayList<>();
         directions = new ArrayList<>();
         listOfItems = new ArrayList<>();
+        listOfEnemies = new ArrayList<>();
     }
+    public void addEnemy(Enemy enemy){listOfEnemies.add(enemy);}
 
     public void addItem(Item item) {
         listOfItems.add(item);
@@ -31,6 +34,7 @@ public class Room {
     public ArrayList<Item> getItems() {
         return listOfItems;
     }
+    public ArrayList<Enemy> getEnemies(){return listOfEnemies;}
 
     public int getId() {
         return this.id;

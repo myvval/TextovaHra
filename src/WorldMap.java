@@ -1,7 +1,5 @@
 import java.io.BufferedReader;
 import java.io.FileReader;
-import java.io.FileWriter;
-import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.HashMap;
 
@@ -13,12 +11,6 @@ public class WorldMap {
         roomList = new ArrayList<>();
         roomMap = new HashMap<>();
     }
-
-    /*public void generateTestMap() {
-        try (PrintWriter pr = new PrintWriter(new FileWriter("data.txt"))) {
-
-        } catch (Exception e) { System.out.println(e.getMessage());}
-    }*/
 
     public Room findRoomByName(String name) {
         for (Room room : roomList) {
@@ -83,13 +75,20 @@ public class WorldMap {
         return roomMap.get(position).getRoomName();
     }
 
-    /*public String getRoomsArroundString(int position) {
-        return "" + roomMap.get(position).getRoomsArround();
-    }*/
     public void getRoomsArroundString(int position) {
         roomMap.get(position).getRoomsArroundString();
     }
-
+    public void getItemsString(int position) {
+        for(Item item:roomMap.get(position).getItems()) {
+            System.out.println(item.getName());
+            System.out.println("bb");
+        }
+    }
+    public void getEnemiesString(int position) {
+        for(Enemy enemy:roomMap.get(position).getEnemies()) {
+            System.out.println(enemy.getName());
+        }
+    }
 
     public int changePlayerRoom(int room1, String nextRoom) { //if check is wrong
         Room room = roomMap.get(room1);

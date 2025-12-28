@@ -25,7 +25,7 @@ public class Player {
     public String getName() {
         return this.name;
     }
-    public int getPlayerHealth() {
+    public int getHealth() {
         return this.health;
     }
     public String getPlayerInfo() {

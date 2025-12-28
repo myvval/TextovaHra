@@ -17,6 +17,7 @@ public class Item {
         this.canLeave = canLeave; //later rewind
 
     }
+    public String getName(){return this.name;}
     public int getLocation() {return this.location;}
     public int getId(){return this.id;}
     public void setDamage(int number) {

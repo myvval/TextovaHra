@@ -11,9 +11,10 @@ ROOMS
 9,BEACH,NONE,PARK,NULL,NULL,PLAINS
 
 ITEMS
-0,PRVNI JMENO,adds 10 attack damage when hold in hand,1,true,damage,10
+0,PRVNI JMENO,adds 10 attack damage when hold in hand,0,true,damage,10
 
-
+ENEMIES
+0,PEPA,25,10,AGGRESSIVE,0
 
 
 
@@ -23,10 +24,12 @@ ITEMS
 #ROOMS
 #ID,NAME,DESCRIPTION,NORTH,SOUTH,EAST,WEST
 
-
-
 #ITEMS
 id,name,description,item location(room id),can leave,usage(example damage),usage number (positive or negative)
+
+#ENEMIES
+#ID,NAME,HP,DAMAGE,PASSIVE/AGGRESSIVE,LOCATION
+--cant be in first room
 
 -only 1 item can be equipped at once
 -they need to be equipped at start of room/item in hand can also be none
