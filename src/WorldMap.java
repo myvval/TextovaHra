@@ -28,13 +28,13 @@ public class WorldMap {
             String section = "";
             String line;
             while ((line = br.readLine()) != null) {
-                /*if (line.equals("ROOMS")) {
+                if (line.equals("ROOMS")) {
                     section = "ROOMS";
                     continue;
                 }
                 if(line.equals("ITEMS")) break;
                 if (line.isEmpty()) continue;
-                */
+
                 switch (section) {
                     case "ROOMS":
 

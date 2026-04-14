@@ -2,7 +2,7 @@
 import java.util.Scanner;
 
 public class Main {
-    static void main(String[] args) {
+    public static void main(String[] args) {
         /*creates managers for world, enemies, items*/
         WorldMap map = new WorldMap();
         ItemsManager itemManager = new ItemsManager();
