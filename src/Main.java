@@ -1,8 +1,8 @@
-import java.util.ArrayList;
+//import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Main {
-    public static void main(String[] args) {
+    static void main(String[] args) {
         /*creates managers for world, enemies, items*/
         WorldMap map = new WorldMap();
         ItemsManager itemManager = new ItemsManager();
