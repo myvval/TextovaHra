@@ -84,6 +84,12 @@ public class WorldMap {
             System.out.println("bb");
         }
     }
+    public int getNumberOfItemsInRoom(int position) {
+        return roomMap.get(position).getNumberOfItems();
+    }
+    public int getNumberOfEnemies(int position) {
+        return roomMap.get(position).getNumberOfEnemies();
+    }
     public void getEnemiesString(int position) {
         for(Enemy enemy:roomMap.get(position).getEnemies()) {
             System.out.println(enemy.getName());

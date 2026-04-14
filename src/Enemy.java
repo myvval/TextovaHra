@@ -14,6 +14,8 @@ public class Enemy {
     public int getLocation(){
         return this.location;
     }
+    public int getHealth(){return this.health;}
+
     public String getName(){return this.name;}
     public int getId(){return this.id;}
 }

@@ -1,4 +1,3 @@
-import java.sql.Array;
 import java.util.ArrayList;
 import java.util.HashMap;
 
@@ -34,6 +33,9 @@ public class Room {
     public ArrayList<Item> getItems() {
         return listOfItems;
     }
+
+    public int getNumberOfEnemies() {return listOfEnemies.size();}
+    public int getNumberOfItems() {return listOfItems.size();}
     public ArrayList<Enemy> getEnemies(){return listOfEnemies;}
 
     public int getId() {
