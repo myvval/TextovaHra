@@ -23,7 +23,7 @@ public class Game {
         System.out.println(player.getPlayerInfo() + map.currentRoomString(player.getPosition()));
         System.out.println("ROOMS ARROUND:");
         map.currentRoomString(player.getPosition());
-        map.getRoomsArroundString(player.getPosition());
+        map.getRoomsAroundString(player.getPosition());
         System.out.println("\nIN WHICH ROOM YOU WANT TO GO? (North/South/East/West)");
         String nextRoom = scanner.nextLine();
         //System.out.println(nextRoom);

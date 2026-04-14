@@ -99,19 +99,8 @@ public class Room {
             directions.add("W");}
     }
 
-    public String getRoomName(){
-        return this.name;
-    }
-    /*public HashMap<Directions,Room> getRoomArroundChange() {
-        return roomsArround;
-    }*/
-    public HashMap<Directions,Room> getRoomsArround() { //upravuje se tohle
-        /*for(int i =0;i<roomsArroundList.size();i++) {
-            if(roomsArroundList.get(i)!=null)
-                System.out.print(directions.get(i)+": "+roomsArroundList.get(i).getRoomName()+"   ");
-        }*/
-        return roomsArround;
-    }
+    public String getRoomName() {return this.name;}
+    public HashMap<Directions,Room> getRoomsArround() {return roomsArround;}
     public void getRoomsArroundString() {
         for (int i = 0; i < roomsArroundList.size(); i++) {
             if (roomsArroundList.get(i) != null)

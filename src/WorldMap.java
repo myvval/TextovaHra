@@ -50,9 +50,7 @@ public class WorldMap {
             }
 
 
-        } catch (Exception e) {
-            System.out.println(e.getMessage());
-        }
+        } catch (Exception e) {System.out.println(e.getMessage());}
     }
 
     public void connectRooms() { //this doesnt work
@@ -75,7 +73,7 @@ public class WorldMap {
         return roomMap.get(position).getRoomName();
     }
 
-    public void getRoomsArroundString(int position) {
+    public void getRoomsAroundString(int position) {
         roomMap.get(position).getRoomsArroundString();
     }
     public void getItemsString(int position) {

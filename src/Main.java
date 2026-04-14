@@ -40,7 +40,7 @@ public class Main {
             map.getItemsString(player.getPosition());
         }
         System.out.println("ROOMS ARROUND:");
-        map.getRoomsArroundString(player.getPosition());
+        map.getRoomsAroundString(player.getPosition());
 
         System.out.println("\nIN WHICH ROOM YOU WANT TO GO? (North/South/East/West)");
         String nextRoom = scanner.nextLine();
@@ -49,7 +49,7 @@ public class Main {
         System.out.println("Current room: "+map.currentRoomString(player.getPosition()));
 
         System.out.println("ROOMS ARROUND:");
-        map.getRoomsArroundString(player.getPosition());
+        map.getRoomsAroundString(player.getPosition());
         //map.showList();
     }
 }
