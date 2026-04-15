@@ -1,5 +1,6 @@
 import java.io.BufferedReader;
 import java.io.FileReader;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 
@@ -50,7 +51,7 @@ public class WorldMap {
             }
 
 
-        } catch (Exception e) {System.out.println(e.getMessage());}
+        } catch (IOException e) {System.out.println(e.getMessage());}
     }
 
     public void connectRooms() { //this doesnt work
