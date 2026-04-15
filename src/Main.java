@@ -3,18 +3,18 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-        /*creates managers for world, enemies, items*/
+        // creates managers for world, enemies, items
         WorldMap map = new WorldMap();
         ItemsManager itemManager = new ItemsManager();
         EnemiesManager enemies = new EnemiesManager();
 
-        /*loads enemies, map, items*/
+        // loads enemies, map, items
         map.loadMap();
         map.connectRooms();
         itemManager.loadItems();
         enemies.loadEnemies();
 
-        /* assign enemies, items to rooms */
+        // assign enemies, items to rooms
         for(Item item:itemManager.getItems()) map.returnListOfRoom().get(item.getLocation()).addItem(item);
         for(Enemy enemy:enemies.getEnemies()) map.returnListOfRoom().get(enemy.getLocation()).addEnemy(enemy);
 
@@ -46,6 +46,7 @@ public class Main {
         String nextRoom = scanner.nextLine();
         //System.out.println(nextRoom);
         player.setPosition(map.changePlayerRoom(player.getPosition(),nextRoom));
+        //System.out.println(player.getPosition());
         System.out.println("Current room: "+map.currentRoomString(player.getPosition()));
 
         System.out.println("ROOMS ARROUND:");

@@ -28,33 +28,29 @@ public class WorldMap {
         try (BufferedReader br = new BufferedReader(new FileReader("data.txt"))) {
             String section = "";
             String line;
-            while ((line = br.readLine()) != null) {
-                if (line.equals("ROOMS")) {
-                    section = "ROOMS";
-                    continue;
-                }
-                if(line.equals("ITEMS")) break;
-                if (line.isEmpty()) continue;
-
-                switch (section) {
+            mapLoop: while ((line = br.readLine()) != null) {
+                switch (line) {
                     case "ROOMS":
-
-                        String[] parts = line.split(",");
-                        Room room = new Room(Integer.parseInt(parts[0]), parts[1], parts[2]);
-                        roomMap.put(room.getId(), room);
-                        roomList.add(room);
-                        room.addConnectionData(parts[3], parts[4], parts[5], parts[6]);
+                        section = "ROOMS"; continue;
+                    case "ITEMS":
+                        break mapLoop;
+                    case "":
+                        continue;
+                    default:
                         break;
                 }
-
-
+                if (section.equals("ROOMS")) { // make it more readable
+                    String[] parts = line.split(",");
+                    Room room = new Room(Integer.parseInt(parts[0]), parts[1], parts[2]);
+                    roomMap.put(room.getId(), room);
+                    roomList.add(room);
+                    room.addConnectionData(parts[3], parts[4], parts[5], parts[6]);
+                }
             }
-
-
         } catch (IOException e) {System.out.println(e.getMessage());}
     }
 
-    public void connectRooms() { //this doesnt work
+    public void connectRooms() { //this should work
         for (Room room : roomList) {
             if (room.getConnectionData().get("North") != null)
                 room.addDirectionNorth(findRoomByName(room.getConnectionData().get("North")));
@@ -80,7 +76,7 @@ public class WorldMap {
     public void getItemsString(int position) {
         for(Item item:roomMap.get(position).getItems()) {
             System.out.println(item.getName());
-            System.out.println("bb");
+            System.out.println("TEST if it works in WorldMap-getItemsString");
         }
     }
     public int getNumberOfItemsInRoom(int position) {
@@ -103,7 +99,6 @@ public class WorldMap {
                 if (room.getRoomsArround().containsKey(Directions.SOUTH))
                     result = room.getSouth();
                 break;
-
             case "West":
                 if (room.getRoomsArround().containsKey(Directions.WEST))
                     result = room.getWest();
@@ -115,7 +110,7 @@ public class WorldMap {
             case "North":
                 if (room.getRoomsArround().containsKey(Directions.NORTH))
                     result = room.getNorth();
-                    System.out.println(room.getNorth());
+                    //System.out.println(room.getNorth());
                 break;
             default:
                 break;

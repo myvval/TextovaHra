@@ -7,16 +7,19 @@ loading for rooms done- no objects, enemies, player, etc.
 
 
 -TO DO LIST-
+need to bugfix: ENEMIES TEXT currently located in Main
 PRIORITY:
-game loop
-
+private int position; -change this to room object not id - rewrite functions that use it
+game loop- create and move it from Main
+refractor: aggressive or passive in EnemiesManager - loadEnemies
 ITEMS:
--need to add the functionallyti of them
+-need to add the functionality of them
 enemies
 quests
-player inv/backpack
+player inv/backpack-slot limit
 
-
+LAST(possibly):
+add website intefrace(possibly database instead of .txt file)
 
 
 
