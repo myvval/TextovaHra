@@ -3,7 +3,7 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-        // creates managers for world, enemies, items
+        /*// creates managers for world, enemies, items
         WorldMap map = new WorldMap();
         ItemsManager itemManager = new ItemsManager();
         EnemiesManager enemies = new EnemiesManager();
@@ -16,8 +16,13 @@ public class Main {
 
         // assign enemies, items to rooms
         for(Item item:itemManager.getItems()) map.returnListOfRoom().get(item.getLocation()).addItem(item);
-        for(Enemy enemy:enemies.getEnemies()) map.returnListOfRoom().get(enemy.getLocation()).addEnemy(enemy);
+        for(Enemy enemy:enemies.getEnemies()) map.returnListOfRoom().get(enemy.getLocation()).addEnemy(enemy);*/
+        Game game = new Game();
+        game.setupGame();
+        game.setPlayerName();
+        game.gameLoop();
 
+        /*
 
 
 
@@ -28,10 +33,10 @@ public class Main {
         System.out.println("START OF THE GAME");
         System.out.println("WHAT YOUR NAME SHOULD BE?");
         player.setName(scanner.nextLine());
-        System.out.println(player.getPlayerInfo()+map.currentRoomString(player.getPosition()));
+        //System.out.println(player.getPlayerInfo()+map.currentRoomString(player.getPosition()));
 
 
-        if(map.getNumberOfEnemies(player.getPosition())>0) { //check by instance of if its aggressive or passive
+        /*if(map.getNumberOfEnemies(player.getPosition())>0) { //check by instance of if its aggressive or passive
             System.out.println("ENEMIES:");
             map.getEnemiesString(player.getPosition());
         }
@@ -52,5 +57,7 @@ public class Main {
         System.out.println("ROOMS ARROUND:");
         map.getRoomsAroundString(player.getPosition());
         //map.showList();
+    }
+}*/
     }
 }
