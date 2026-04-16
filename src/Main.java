@@ -18,8 +18,11 @@ public class Main {
         for(Item item:itemManager.getItems()) map.returnListOfRoom().get(item.getLocation()).addItem(item);
         for(Enemy enemy:enemies.getEnemies()) map.returnListOfRoom().get(enemy.getLocation()).addEnemy(enemy);*/
         Game game = new Game();
-        game.startGame();
-        game.setPlayerName(); /*
+        game.setupGame();
+        game.setPlayerName();
+        game.gameLoop();
+
+        /*
 
 
 
