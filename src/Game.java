@@ -8,7 +8,7 @@ public class Game {
     private EnemiesManager enemiesManager;
     private Player player;
 
-    public Game(){
+    public Game() {
         map = new WorldMap();
         itemsManager = new ItemsManager();
         enemiesManager = new EnemiesManager();
@@ -22,11 +22,13 @@ public class Game {
         enemiesManager.loadEnemies();
 
         // assign enemies, items to rooms
-        for(Item item:itemsManager.getItems()) map.returnListOfRoom().get(item.getLocation()).addItem(item);
-        for(Enemy enemy:enemiesManager.getEnemies()) map.returnListOfRoom().get(enemy.getLocation()).addEnemy(enemy);
+        for (Item item : itemsManager.getItems()) map.returnListOfRoom().get(item.getLocation()).addItem(item);
+        for (Enemy enemy : enemiesManager.getEnemies()) map.returnListOfRoom().get(enemy.getLocation()).addEnemy(enemy);
         System.out.println("START OF THE GAME");
     }
-    public void game() {}
+
+    public void game() {
+    }
 
     private void enemies() {
         if (map.getNumberOfEnemies(player.getPosition()) > 0) { //check by instance of if its aggressive or passive
@@ -34,8 +36,9 @@ public class Game {
             map.getEnemiesString(player.getPosition());
         }
     }
+
     private void items() {
-        if(map.getNumberOfItemsInRoom(player.getPosition())>0) {
+        if (map.getNumberOfItemsInRoom(player.getPosition()) > 0) {
             System.out.println("ITEMS IN THIS ROOM:");
             map.getItemsString(player.getPosition());
         }
@@ -51,6 +54,7 @@ public class Game {
         } while (input.isBlank());
         player.setName(input);
     }
+
     public void startGame() {
         System.out.println(player.getPlayerInfo() + map.currentRoomString(player.getPosition()));
         System.out.println("ROOMS ARROUND:");
@@ -88,13 +92,15 @@ public class Game {
                 break;
             }
         }*/
-        System.out.println("Player info:");
-        System.out.println(player.getPlayerInfo() + map.currentRoomString(player.getPosition()));
-        System.out.println("ROOMS ARROUND:");
-        map.currentRoomString(player.getPosition());
-        map.getRoomsAroundString(player.getPosition());
-        System.out.println("\nIN WHICH ROOM YOU WANT TO GO? (North/South/East/West)");
-        String nextRoom = scanner.nextLine();
-        player.setPosition(map.changePlayerRoom(player.getPosition(), nextRoom));
+        while (gameLoop) {
+            System.out.println("Player info:");
+            System.out.println(player.getPlayerInfo() + map.currentRoomString(player.getPosition()));
+            System.out.println("ROOMS ARROUND:");
+            map.currentRoomString(player.getPosition());
+            map.getRoomsAroundString(player.getPosition());
+            System.out.println("\nIN WHICH ROOM YOU WANT TO GO? (North/South/East/West)");
+            String nextRoom = scanner.nextLine();
+            player.setPosition(map.changePlayerRoom(player.getPosition(), nextRoom));
+        }
     }
 }
