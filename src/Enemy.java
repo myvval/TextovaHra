@@ -15,6 +15,7 @@ public class Enemy {
         return this.location;
     }
     public int getHealth(){return this.health;}
+    public void setHealth(int health) {this.health = health;}
 
     public String getName(){return this.name;}
     public int getId(){return this.id;}

@@ -18,7 +18,7 @@ public class Player {
     public void setPosition(int position) {
         this.position = position;
     }
-
+    public int getDamage() {return this.damage;}
     public void setName(String name) {
         this.name = name;
     }
@@ -31,4 +31,7 @@ public class Player {
     public String getPlayerInfo() {
         return "Name: "+name+" Health: "+health+" Position: ";
     }
+
+
+
 }

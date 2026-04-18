@@ -50,6 +50,8 @@ public class EnemiesManager {
     public ArrayList<Enemy> getEnemies(){
         return this.listOfEnemies;
     }
-
+    public HashMap<Integer,Enemy> getHashMapWithEnemies(){
+        return this.mapOfEnemies;
+    }
 
 }

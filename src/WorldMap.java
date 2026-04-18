@@ -19,6 +19,11 @@ public class WorldMap {
         }
         return null;
     }
+
+    public Room findRoomByID(int id) {
+        return roomMap.get(id);
+    }
+
     public Room findRoomById(int id) {
         return roomMap.get(id);
     }
@@ -65,6 +70,9 @@ public class WorldMap {
         }
     }
 
+    public Enemy getEnemy(int position, String name) {
+        return roomMap.get(position).getEnemy(name);
+    }
 
     public String currentRoomString(int position) {
         return roomMap.get(position).getRoomName();
@@ -79,6 +87,9 @@ public class WorldMap {
             System.out.println("TEST if it works in WorldMap-getItemsString");
         }
     }
+
+
+
     public int getNumberOfItemsInRoom(int position) {
         return roomMap.get(position).getNumberOfItems();
     }
@@ -89,6 +100,15 @@ public class WorldMap {
         for(Enemy enemy:roomMap.get(position).getEnemies()) {
             System.out.println(enemy.getName());
         }
+    }
+
+    public boolean checkIfEnemyExistsInCurrentRoom(int position, String name) {
+        for (Enemy enemy: roomMap.get(position).getEnemies()) {
+            if (enemy.getName().equals(name)) {
+                return true;
+            }
+        }
+        return false;
     }
 
     public int changePlayerRoom(int room1, String nextRoom) { //if check is wrong
