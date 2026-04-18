@@ -15,7 +15,13 @@ public class Enemy {
         return this.location;
     }
     public int getHealth(){return this.health;}
-
+    public void setHealth(int health) {
+        this.health = health;
+        if (this.health < 0) {
+            this.health = 0;
+        }
+    }
+    public int getDamage() {return this.damage;}
     public String getName(){return this.name;}
     public int getId(){return this.id;}
 }

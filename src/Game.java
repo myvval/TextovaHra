@@ -1,6 +1,5 @@
-import javax.crypto.EncryptedPrivateKeyInfo;
 import java.util.Scanner;
-
+import java.util.Random;
 public class Game {
     private boolean gameLoop = true;
     private WorldMap map;
@@ -44,6 +43,41 @@ public class Game {
         }
     }
 
+    private void combat() {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Which enemy?");
+        String enemy_name = scanner.nextLine();
+        boolean combat_state = true;
+        if (map.checkIfEnemyExistsInCurrentRoom(player.getPosition(), enemy_name)) {
+            Enemy enemy = map.getEnemy(player.getPosition(), enemy_name);
+            //Battle logic
+            System.out.println("Battle begins.");
+            /*Random generator = new Random();
+            boolean randomStart = generator.nextBoolean(); --incase I would change it in the future to randomize who starts in fight */
+            while (combat_state) {
+                int damage_dealt = enemy.getHealth();
+                enemy.setHealth(enemy.getHealth() - player.getDamage());
+                damage_dealt -= enemy.getHealth();
+                System.out.println(enemy.getHealth());
+                System.out.printf("You did %d damage!%n",damage_dealt);
+                if (enemy.getHealth() == 0) {
+                    // remove all references for enemy
+                    System.out.printf("You successfully defeated %s%n",enemy.getName());
+                    enemiesManager.getHashMapWithEnemies().remove(enemy.getId());
+                    enemiesManager.getEnemies().remove(enemy);
+                    map.findRoomByID(player.getPosition()).getEnemies().remove(enemy);
+                    combat_state = false;
+                }
+                player.setHealth(player.getHealth() - enemy.getDamage());
+                if (player.getHealth()<=0) {
+                System.out.println("YOU LOST THE GAME");
+                gameLoop = false;
+                }
+            }
+
+        }
+    }
+
     public void setPlayerName() {
         Scanner scanner = new Scanner(System.in);
         player = new Player("NO NAME");
@@ -67,31 +101,32 @@ public class Game {
     }
 
     public void gameLoop() {
-        Scanner scanner = new Scanner(System.in);/*
+        Scanner scanner = new Scanner(System.in);
         enemies();
         items();
         boolean enemiesPlayerState = false;
         boolean itemsPlayerState = false;
         while(true) {
-            String state = scanner.nextLine();
             System.out.println("Do you want to fight any enemies(Y/N)");
+            String state = scanner.nextLine();
             if (state.equals("Y")) {
-                enemiesPlayerState = true;
+                combat();
                 break;
-            } else if (state.equals("N")) {
+            }
+            else if (state.equals("N")) {
                 break;
             }
         }
         while(true) {
-            String state = scanner.nextLine();
             System.out.println("Do you want to use any items(Y/N)");
+            String state = scanner.nextLine();
             if (state.equals("Y")) {
                 itemsPlayerState = true;
                 break;
             } else if (state.equals("N")) {
                 break;
             }
-        }*/
+        }
         while (gameLoop) {
             System.out.println("Player info:");
             System.out.println(player.getPlayerInfo() + map.currentRoomString(player.getPosition()));
@@ -101,6 +136,10 @@ public class Game {
             System.out.println("\nIN WHICH ROOM YOU WANT TO GO? (North/South/East/West)");
             String nextRoom = scanner.nextLine();
             player.setPosition(map.changePlayerRoom(player.getPosition(), nextRoom));
+            if (player.getPosition() == 10) {
+                System.out.println("YOU WON THE GAME");
+                gameLoop = false;
+            }
         }
     }
 }

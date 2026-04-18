@@ -38,11 +38,22 @@ public class Room {
     public int getNumberOfItems() {return listOfItems.size();}
     public ArrayList<Enemy> getEnemies(){return listOfEnemies;}
 
+
+
     public int getId() {
         return this.id;
     }
     public String getName() {
         return this.name;
+    }
+
+    public Enemy getEnemy(String name) {
+        for (Enemy enemy : listOfEnemies) {
+            if (enemy.getName().equals(name)) {
+                return enemy;
+            }
+        }
+        return null;
     }
 
     public void addConnectionData(String north,String south,String east,String west){

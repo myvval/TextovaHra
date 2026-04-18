@@ -18,7 +18,7 @@ public class Player {
     public void setPosition(int position) {
         this.position = position;
     }
-
+    public int getDamage() {return this.damage;}
     public void setName(String name) {
         this.name = name;
     }
@@ -28,7 +28,11 @@ public class Player {
     public int getHealth() {
         return this.health;
     }
+    public void setHealth(int health) {if (health>0) {this.health = health;}}
     public String getPlayerInfo() {
         return "Name: "+name+" Health: "+health+" Position: ";
     }
+
+
+
 }

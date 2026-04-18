@@ -5,10 +5,11 @@ ROOMS
 3,RIVER,NONE,NULL,PLAINS,PARK,FLOWER FIELD
 4,FIELD,NONE,NULL,FLOWER FIELD,NULL,LAKE
 5,LAKE,NONE,NULL,NULL,FIELD,NULL
-6,MEADOW,NONE,FINAL ROOM,PARK,NULL,NULL
+6,MEADOW,NONE,FINAL_ROOM,PARK,NULL,NULL
 7,PLAINS,NONE,RIVER,NULL,BEACH,FOREST
 8,PARK,NONE,MEADOW,BEACH,NULL,NULL
 9,BEACH,NONE,PARK,NULL,NULL,PLAINS
+10,FINAL_ROOM,NONE,NULL,MEADOW,NULL,NULL
 
 ITEMS
 0,PRVNI JMENO,adds 10 attack damage when hold in hand,0,true,damage,10
@@ -20,6 +21,7 @@ END
 
 
 # STARTING ROOM WILL BE EVERY TIME ID 0, TO ROOMS SHOULD BE ASSIGNED IDS BY THE CREATION ORDER AND THEY SHOULD BE IN ORDER
+#There needs to be a final_room or the game wont be able to end
 # FORMATE:
 #ROOMS
 #ID,NAME,DESCRIPTION,NORTH,SOUTH,EAST,WEST
@@ -29,7 +31,7 @@ id,name,description,item location(room id),can leave,usage(example damage),usage
 
 #ENEMIES
 #ID,NAME,HP,DAMAGE,PASSIVE/AGGRESSIVE,LOCATION
---cant be in first room
+->cant be in room(0) --need to test this
 
 -only 1 item can be equipped at once
 -they need to be equipped at start of room/item in hand can also be none
