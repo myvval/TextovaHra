@@ -101,6 +101,10 @@ public class Game {
             System.out.println("\nIN WHICH ROOM YOU WANT TO GO? (North/South/East/West)");
             String nextRoom = scanner.nextLine();
             player.setPosition(map.changePlayerRoom(player.getPosition(), nextRoom));
+            if (player.getPosition() == 10) {
+                System.out.println("YOU WON THE GAME");
+                gameLoop = false;
+            }
         }
     }
 }
