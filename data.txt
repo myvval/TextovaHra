@@ -31,7 +31,7 @@ id,name,description,item location(room id),can leave,usage(example damage),usage
 
 #ENEMIES
 #ID,NAME,HP,DAMAGE,PASSIVE/AGGRESSIVE,LOCATION
---cant be in first room
+->cant be in room(0) --need to test this
 
 -only 1 item can be equipped at once
 -they need to be equipped at start of room/item in hand can also be none

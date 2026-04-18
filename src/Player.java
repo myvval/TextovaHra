@@ -28,6 +28,7 @@ public class Player {
     public int getHealth() {
         return this.health;
     }
+    public void setHealth(int health) {if (health>0) {this.health = health;}}
     public String getPlayerInfo() {
         return "Name: "+name+" Health: "+health+" Position: ";
     }

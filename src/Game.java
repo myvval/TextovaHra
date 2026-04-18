@@ -47,21 +47,34 @@ public class Game {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Which enemy?");
         String enemy_name = scanner.nextLine();
+        boolean combat_state = true;
         if (map.checkIfEnemyExistsInCurrentRoom(player.getPosition(), enemy_name)) {
             Enemy enemy = map.getEnemy(player.getPosition(), enemy_name);
             //Battle logic
             System.out.println("Battle begins.");
-            Random generator = new Random();
-            boolean randomStart = generator.nextBoolean(); //boolean randomStart = (generator.nextInt(2) == 1);
-            if (randomStart) {
+            /*Random generator = new Random();
+            boolean randomStart = generator.nextBoolean(); --incase I would change it in the future to randomize who starts in fight */
+            while (combat_state) {
+                int damage_dealt = enemy.getHealth();
                 enemy.setHealth(enemy.getHealth() - player.getDamage());
-                if (enemy.getHealth() <= 0) {
+                damage_dealt -= enemy.getHealth();
+                System.out.println(enemy.getHealth());
+                System.out.printf("You did %d damage!%n",damage_dealt);
+                if (enemy.getHealth() == 0) {
                     // remove all references for enemy
+                    System.out.printf("You successfully defeated %s%n",enemy.getName());
                     enemiesManager.getHashMapWithEnemies().remove(enemy.getId());
                     enemiesManager.getEnemies().remove(enemy);
                     map.findRoomByID(player.getPosition()).getEnemies().remove(enemy);
+                    combat_state = false;
+                }
+                player.setHealth(player.getHealth() - enemy.getDamage());
+                if (player.getHealth()<=0) {
+                System.out.println("YOU LOST THE GAME");
+                gameLoop = false;
                 }
             }
+
         }
     }
 
@@ -97,19 +110,10 @@ public class Game {
             System.out.println("Do you want to fight any enemies(Y/N)");
             String state = scanner.nextLine();
             if (state.equals("Y")) {
-                enemiesPlayerState = true;
-                System.out.println("Which enemy?");
-                String enemy_name = scanner.nextLine();
-                if(map.checkIfEnemyExistsInCurrentRoom(player.getPosition(),enemy_name)) {
-                    //Battle logic
-                    System.out.println("Battle begins.");
-                    Random generator = new Random();
-                    //boolean randomStart = (generator.nextInt(2) == 1);
-                    boolean randomStart = generator.nextBoolean();
-
-
-                }
-            } else if (state.equals("N")) {
+                combat();
+                break;
+            }
+            else if (state.equals("N")) {
                 break;
             }
         }
@@ -135,11 +139,7 @@ public class Game {
             if (player.getPosition() == 10) {
                 System.out.println("YOU WON THE GAME");
                 gameLoop = false;
-            } else if (player.getHealth()<=0) {
-                System.out.println("YOU LOST THE GAME");
-                gameLoop = false;
             }
-
         }
     }
 }
