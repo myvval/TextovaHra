@@ -24,11 +24,6 @@ public class WorldMap {
         return roomMap.get(id);
     }
 
-    public Room findRoomById(int id) {
-        return roomMap.get(id);
-    }
-
-
     public void loadMap() {
         try (BufferedReader br = new BufferedReader(new FileReader("data.txt"))) {
             String section = "";
@@ -130,7 +125,6 @@ public class WorldMap {
             case "North":
                 if (room.getRoomsArround().containsKey(Directions.NORTH))
                     result = room.getNorth();
-                    //System.out.println(room.getNorth());
                 break;
             default:
                 break;
@@ -141,12 +135,12 @@ public class WorldMap {
 
 
 
-    public void showList() {
+    /*public void showList() {
         for(Room room: roomList) {
             System.out.println(room.getRoomsArround());
         }
     }
-
+*/
     public ArrayList<Room> returnListOfRoom() {
         return roomList;
     }

@@ -4,7 +4,6 @@ import java.util.HashMap;
 public class Room {
     private int id;
     private String name;
-    private String description;
     private HashMap<Directions,Room> roomsArround;
     private ArrayList<Room> roomsArroundList;
     private HashMap<String,String> connectionData;
@@ -14,7 +13,6 @@ public class Room {
     public Room(int id,String name,String description) {
         this.id = id;
         this.name = name;
-        this.description = description;
         roomsArround = new HashMap<>();
         connectionData = new HashMap<>();
         roomsArroundList = new ArrayList<>();
@@ -118,9 +116,4 @@ public class Room {
                 System.out.print(directions.get(i) + ": " + roomsArroundList.get(i).getRoomName() + "   ");
         }
     }
-    /*public String toString() {
-        return this.name;
-    }*/
-
-
 }
