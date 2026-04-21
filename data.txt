@@ -12,38 +12,28 @@ ROOMS
 10,FINAL_ROOM,NONE,NULL,MEADOW,NULL,NULL
 
 ITEMS
-0,PRVNI JMENO,adds 10 attack damage when hold in hand,0,true,damage,10
+0,FIRST_ITEM(TEST),adds 10 attack damage when hold in hand,0,true,damage,10
 
 ENEMIES
-0,PEPA,25,10,AGGRESSIVE,0
-2,DAN,25,10,AGGRESSIVE,0
+0,ENEMY1,25,10,AGGRESSIVE,0
+2,ENEMY2,25,10,AGGRESSIVE,0
 END
 
 
-# STARTING ROOM WILL BE EVERY TIME ID 0, TO ROOMS SHOULD BE ASSIGNED IDS BY THE CREATION ORDER AND THEY SHOULD BE IN ORDER
-#There needs to be a final_room or the game wont be able to end
+
 # FORMATE:
 #ROOMS
 #ID,NAME,DESCRIPTION,NORTH,SOUTH,EAST,WEST
+
+# STARTING ROOM WILL BE EVERY TIME ID 0, TO ROOMS SHOULD BE ASSIGNED IDS BY THE CREATION ORDER AND THEY SHOULD BE IN ORDER
 
 #ITEMS
 id,name,description,item location(room id),can leave,usage(example damage),usage number (positive or negative)
 
 #ENEMIES
 #ID,NAME,HP,DAMAGE,PASSIVE/AGGRESSIVE,LOCATION
-->cant be in room(0) --need to test this
 
--only 1 item can be equipped at once
--they need to be equipped at start of room/item in hand can also be none
--items can have buffs but also debuffs
-later everything can be decreased or increased
 default defense 0
 default health 100
 default damage 10
-usages for item can be:
--damage
-
--health
-
--armor
 
